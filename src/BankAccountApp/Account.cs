@@ -1,8 +1,11 @@
 ﻿namespace Bank {
     using System;
     using System.Diagnostics;
+    using System.Globalization;
 
     public class Account {
+        public string Name { get; set; }
+
         public decimal Balance { get; private set; }
 
         /// <summary>
@@ -10,6 +13,12 @@
         /// </summary>
         public Account(decimal balance=0) {
             this.Balance = balance;
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="T:System.Object" /> class.</summary>
+        public Account(string name, decimal balance) {
+            this.Balance = balance;
+            this.Name = name;
         }
 
         public void Deposit(decimal amount) {
@@ -47,6 +56,12 @@
                     throw;
                 }
             }
+        }
+
+        public override string ToString() {
+            IFormattable fmt = $"{this.Name}: {this.Balance:C}";
+
+            return fmt.ToString(null, CultureInfo.InvariantCulture);
         }
     }
 }
