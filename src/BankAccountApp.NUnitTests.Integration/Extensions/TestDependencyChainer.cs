@@ -1,4 +1,4 @@
-﻿namespace NetUnitTestProjectWithOrder.Extensions {
+﻿namespace BankAccountApp.NUnitTests.Integration.Extensions {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
@@ -15,7 +15,7 @@
         private TestDependencyChainer() {
             Debugger.Break();
 
-            var excludedMethodNames = new[] {nameof(GetHashCode), nameof(Equals), nameof(ToString), nameof(GetType)};
+            var excludedMethodNames = new[] {nameof(this.GetHashCode), nameof(Equals), nameof(this.ToString), nameof(this.GetType)};
             var types = from type in typeof(TestDependencyChainer).Assembly.GetExportedTypes()
                 where type.GetCustomAttribute<TestFixtureAttribute>() != null
                 from method in type.GetMethods(BindingFlags.Instance | BindingFlags.Public)
@@ -93,7 +93,7 @@
         public override bool Equals(object obj) {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj is TestCaseDescriptor && Equals((TestCaseDescriptor) obj);
+            return obj is TestCaseDescriptor && this.Equals((TestCaseDescriptor) obj);
         }
 
         public override int GetHashCode() {

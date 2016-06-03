@@ -1,6 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable ExpressionIsAlwaysNull
-namespace NetUnitTestProjectWithOrder {
+namespace BankAccountApp.NUnitTests.Integration {
     using System;
     using Bank;
     using Extensions;

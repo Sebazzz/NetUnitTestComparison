@@ -1,4 +1,4 @@
-﻿namespace NetUnitTestProjectWithOrder.Extensions {
+﻿namespace BankAccountApp.NUnitTests.Integration.Extensions {
     using System;
     using NUnit.Framework;
     using NUnit.Framework.Interfaces;

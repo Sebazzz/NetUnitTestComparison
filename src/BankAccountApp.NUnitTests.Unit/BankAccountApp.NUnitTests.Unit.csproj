@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1C09A009-51D5-45BD-8263-BD992937254C}</ProjectGuid>
+    <ProjectGuid>{8572D256-BFE7-44E7-A9CB-4B112E84776C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NetUnitTestProjectWithOrder</RootNamespace>
-    <AssemblyName>NetUnitTestProjectWithOrder</AssemblyName>
+    <RootNamespace>BankAccountApp.NUnitTests.Unit</RootNamespace>
+    <AssemblyName>BankAccountApp.NUnitTests.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,19 +67,17 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Extensions\TestDependencyAttribute.cs" />
-    <Compile Include="Extensions\TestDependencyChainer.cs" />
+    <Compile Include="UnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IntegrationTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BankAccountApp\BankAccountApp.csproj">
-      <Project>{E6896E2B-CAC8-4A6F-89DC-B1FA91290C59}</Project>
+      <Project>{e6896e2b-cac8-4a6f-89dc-b1fa91290c59}</Project>
       <Name>BankAccountApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

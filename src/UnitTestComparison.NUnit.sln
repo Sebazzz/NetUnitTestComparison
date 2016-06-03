@@ -5,14 +5,14 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountApp", "BankAccountApp\BankAccountApp.csproj", "{E6896E2B-CAC8-4A6F-89DC-B1FA91290C59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetUnitTestProject", "NetUnitTestProject\NetUnitTestProject.csproj", "{8572D256-BFE7-44E7-A9CB-4B112E84776C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountApp.NUnitTests.Unit", "BankAccountApp.NUnitTests.Unit\BankAccountApp.NUnitTests.Unit.csproj", "{8572D256-BFE7-44E7-A9CB-4B112E84776C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E5C1BB4D-1224-4FEB-BDD7-6242F782BDD9}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetUnitTestProjectWithOrder", "NetUnitTestProjectWithOrder\NetUnitTestProjectWithOrder.csproj", "{1C09A009-51D5-45BD-8263-BD992937254C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountApp.NUnitTests.Integration", "BankAccountApp.NUnitTests.Integration\BankAccountApp.NUnitTests.Integration.csproj", "{1C09A009-51D5-45BD-8263-BD992937254C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

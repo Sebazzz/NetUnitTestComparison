@@ -1,7 +1,7 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable ExpressionIsAlwaysNull
 // ReSharper disable RedundantArgumentDefaultValue
-namespace NetUnitTestProject {
+namespace BankAccountApp.NUnitTests.Unit {
     using System;
     using Bank;
     using NUnit.Framework;
