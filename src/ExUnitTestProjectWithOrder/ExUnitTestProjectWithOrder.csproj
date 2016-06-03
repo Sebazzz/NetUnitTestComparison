@@ -65,18 +65,23 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Extension\DependencyTestCaseOrderer.cs" />
-    <Compile Include="Extension\TestDependencyAttribute.cs" />
+    <Compile Include="PreIntegrationTest.cs" />
     <Compile Include="IntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BankAccountApp\BankAccountApp.csproj">
       <Project>{E6896E2B-CAC8-4A6F-89DC-B1FA91290C59}</Project>
       <Name>BankAccountApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XUnit.Extensions.TestOrdering\XUnit.Extensions.TestOrdering.csproj">
+      <Project>{bec18c75-2aa5-4595-a64e-87e7d1fb4e4a}</Project>
+      <Name>XUnit.Extensions.TestOrdering</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

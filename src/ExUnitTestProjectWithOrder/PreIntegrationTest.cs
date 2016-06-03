@@ -1,18 +1,16 @@
-﻿using Xunit;
-
-namespace ExUnitTestProjectWithOrder {
+﻿namespace ExUnitTestProjectWithOrder {
     using System;
     using Bank;
+    using Xunit;
     using XUnit.Extensions.TestOrdering;
 
-    [Collection(nameof(IntegrationTest))]
-    [TestCollectionDependency(typeof(PreIntegrationTest))]
-    public sealed class IntegrationTest {
+    [Collection(nameof(PreIntegrationTest))]
+    public sealed class PreIntegrationTest {
         private readonly AccountRepository _accountRepository = new AccountRepository();
 
         [Fact]
-        [TestDependency(nameof(ExistingAccount_AccountRepository_CanRetrieveSavedAccount))]
-        public void ExistingAccount_AccountRepository_CanDeleteSavedAccount() {
+        [TestDependency(nameof(PreIntegrationTest_ExistingAccount_AccountRepository_CanRetrieveSavedAccount))]
+        public void PreIntegrationTest_ExistingAccount_AccountRepository_CanDeleteSavedAccount() {
             // Given 
             const string accountName = "Foo";
 
@@ -25,8 +23,8 @@ namespace ExUnitTestProjectWithOrder {
         }
 
         [Fact]
-        [TestDependency(nameof(NewAccount_AccountRepository_CanSaveAccount))]
-        public void ExistingAccount_AccountRepository_CanRetrieveSavedAccount() {
+        [TestDependency(nameof(PreIntegrationTest_NewAccount_AccountRepository_CanSaveAccount))]
+        public void PreIntegrationTest_ExistingAccount_AccountRepository_CanRetrieveSavedAccount() {
             // Given 
             const string accountName = "Foo";
 
@@ -38,7 +36,7 @@ namespace ExUnitTestProjectWithOrder {
         }
 
         [Fact]
-        public void NewAccount_AccountRepository_CanSaveAccount() {
+        public void PreIntegrationTest_NewAccount_AccountRepository_CanSaveAccount() {
             // Given
             var account = new Account("Foo", 10);
 
@@ -51,8 +49,8 @@ namespace ExUnitTestProjectWithOrder {
         }
 
         [Fact]
-        [TestDependency(nameof(ExistingAccount_AccountRepository_CanDeleteSavedAccount))]
-        public void NonExistingAccount_AccountRepository_GetThrows() {
+        [TestDependency(nameof(PreIntegrationTest_ExistingAccount_AccountRepository_CanDeleteSavedAccount))]
+        public void PreIntegrationTest_NonExistingAccount_AccountRepository_GetThrows() {
             // Given 
             const string accountName = "Foo";
 
