@@ -5,14 +5,14 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountApp", "BankAccountApp\BankAccountApp.csproj", "{E6896E2B-CAC8-4A6F-89DC-B1FA91290C59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackAccountApp.XUnitTests.Unit", "ExUnitTestProject\BackAccountApp.XUnitTests.Unit.csproj", "{8F3EB865-3744-4ABB-AC78-6313B725A175}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackAccountApp.XUnitTests.Unit", "BankAccountApp.XUnitTests.Unit\BankAccountApp.XUnitTests.Unit.csproj", "{8F3EB865-3744-4ABB-AC78-6313B725A175}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E5C1BB4D-1224-4FEB-BDD7-6242F782BDD9}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackAccountApp.XUnitTests.Integration", "ExUnitTestProjectWithOrder\BackAccountApp.XUnitTests.Integration.csproj", "{3CF3FE1B-0E64-4502-9E64-EADAEB208ABC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackAccountApp.XUnitTests.Integration", "BankAccountApp.XUnitTests.Integration\BankAccountApp.XUnitTests.Integration.csproj", "{3CF3FE1B-0E64-4502-9E64-EADAEB208ABC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit.Extensions.TestOrdering", "XUnit.Extensions.TestOrdering\XUnit.Extensions.TestOrdering.csproj", "{BEC18C75-2AA5-4595-A64E-87E7D1FB4E4A}"
 EndProject

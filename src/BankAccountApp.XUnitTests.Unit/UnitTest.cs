@@ -1,6 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable ExpressionIsAlwaysNull
-namespace ExUnitTestProject {
+namespace BankAccountApp.XUnitTests.Unit {
     using System;
     using Bank;
     using Xunit;

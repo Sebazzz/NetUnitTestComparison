@@ -1,8 +1,7 @@
-﻿using Xunit;
-
-namespace ExUnitTestProjectWithOrder {
+﻿namespace BankAccountApp.XUnitTests.Integration {
     using System;
     using Bank;
+    using Xunit;
     using XUnit.Extensions.TestOrdering;
 
     [Collection(nameof(IntegrationTest))]

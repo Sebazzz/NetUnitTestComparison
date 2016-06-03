@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8F3EB865-3744-4ABB-AC78-6313B725A175}</ProjectGuid>
+    <ProjectGuid>{3CF3FE1B-0E64-4502-9E64-EADAEB208ABC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExUnitTestProject</RootNamespace>
-    <AssemblyName>ExUnitTestProject</AssemblyName>
+    <RootNamespace>BankAccountApp.XUnitTests.Integration</RootNamespace>
+    <AssemblyName>BankAccountApp.XUnitTests.Integration</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -19,13 +19,12 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -33,7 +32,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -66,17 +65,25 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest.cs" />
+    <Compile Include="PostIntegrationTest.cs" />
+    <Compile Include="PreIntegrationTest.cs" />
+    <Compile Include="IntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BankAccountApp\BankAccountApp.csproj">
-      <Project>{e6896e2b-cac8-4a6f-89dc-b1fa91290c59}</Project>
-      <Name>BankAccountApp</Name>
-    </ProjectReference>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\BankAccountApp\BankAccountApp.csproj">
+      <Project>{E6896E2B-CAC8-4A6F-89DC-B1FA91290C59}</Project>
+      <Name>BankAccountApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XUnit.Extensions.TestOrdering\XUnit.Extensions.TestOrdering.csproj">
+      <Project>{bec18c75-2aa5-4595-a64e-87e7d1fb4e4a}</Project>
+      <Name>XUnit.Extensions.TestOrdering</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

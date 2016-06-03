@@ -10,6 +10,6 @@
             this.MethodDependency = methodDependency;
         }
 
-        public string MethodDependency { get; set; }
+        public string MethodDependency { get; }
     }
 }
