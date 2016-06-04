@@ -1,16 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountApp", "BankAccountApp\BankAccountApp.csproj", "{E6896E2B-CAC8-4A6F-89DC-B1FA91290C59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftTestProject", "MicrosoftTestProject\MicrosoftTestProject.csproj", "{ED68251C-7835-46A9-B1FC-1E91EAFA6E31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountApp.MSTests.Unit", "BankAccountApp.MSTests.Unit\BankAccountApp.MSTests.Unit.csproj", "{ED68251C-7835-46A9-B1FC-1E91EAFA6E31}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E5C1BB4D-1224-4FEB-BDD7-6242F782BDD9}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountApp.MSTests.Integration", "BankAccountApp.MSTests.Integration\BankAccountApp.MSTests.Integration.csproj", "{CF3CF419-4488-4DEA-B559-08E0A76BC9C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{ED68251C-7835-46A9-B1FC-1E91EAFA6E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED68251C-7835-46A9-B1FC-1E91EAFA6E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED68251C-7835-46A9-B1FC-1E91EAFA6E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF3CF419-4488-4DEA-B559-08E0A76BC9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF3CF419-4488-4DEA-B559-08E0A76BC9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF3CF419-4488-4DEA-B559-08E0A76BC9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF3CF419-4488-4DEA-B559-08E0A76BC9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
