@@ -7,6 +7,7 @@ namespace BankAccountApp.NUnitTests.Integration {
     using NUnit.Framework;
 
     [TestFixture]
+    [TestFixtureDependency(typeof(PreIntegrationTest))]
     public sealed class IntegrationTest {
         private readonly AccountRepository _accountRepository = new AccountRepository();
 

@@ -41,5 +41,5 @@ try {
 }
 
 Write-Host "Running tests..."
-#Run "BankAccountApp.NUnitTests.Unit"
+Run "BankAccountApp.NUnitTests.Unit"
 Run "BankAccountApp.NUnitTests.Integration"

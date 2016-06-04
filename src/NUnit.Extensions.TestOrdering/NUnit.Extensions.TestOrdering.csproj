@@ -47,8 +47,10 @@
     <Compile Include="DependencyChainValidator.cs" />
     <Compile Include="DependencySorter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestFixtureDependencyAttribute.cs" />
     <Compile Include="TestMethodDependencyAttribute.cs" />
-    <Compile Include="TestDependencyChainer.cs" />
+    <Compile Include="TestFixtureDependencyChainer.cs" />
+    <Compile Include="TestMethodDependencyChainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

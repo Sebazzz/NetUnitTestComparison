@@ -66,6 +66,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="PostIntegrationTest.cs" />
+    <Compile Include="PreIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IntegrationTest.cs" />
   </ItemGroup>
