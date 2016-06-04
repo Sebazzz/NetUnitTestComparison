@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E5C1BB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountApp.NUnitTests.Integration", "BankAccountApp.NUnitTests.Integration\BankAccountApp.NUnitTests.Integration.csproj", "{1C09A009-51D5-45BD-8263-BD992937254C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.Extensions.TestOrdering", "NUnit.Extensions.TestOrdering\NUnit.Extensions.TestOrdering.csproj", "{18ED43E4-7CEB-4C29-9952-DD6434058657}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{1C09A009-51D5-45BD-8263-BD992937254C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C09A009-51D5-45BD-8263-BD992937254C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C09A009-51D5-45BD-8263-BD992937254C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18ED43E4-7CEB-4C29-9952-DD6434058657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18ED43E4-7CEB-4C29-9952-DD6434058657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18ED43E4-7CEB-4C29-9952-DD6434058657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18ED43E4-7CEB-4C29-9952-DD6434058657}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

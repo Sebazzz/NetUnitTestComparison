@@ -66,8 +66,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Extensions\TestDependencyAttribute.cs" />
-    <Compile Include="Extensions\TestDependencyChainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IntegrationTest.cs" />
   </ItemGroup>
@@ -78,6 +76,10 @@
     <ProjectReference Include="..\BankAccountApp\BankAccountApp.csproj">
       <Project>{E6896E2B-CAC8-4A6F-89DC-B1FA91290C59}</Project>
       <Name>BankAccountApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NUnit.Extensions.TestOrdering\NUnit.Extensions.TestOrdering.csproj">
+      <Project>{18ed43e4-7ceb-4c29-9952-dd6434058657}</Project>
+      <Name>NUnit.Extensions.TestOrdering</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

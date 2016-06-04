@@ -1,9 +1,10 @@
 Param([Switch]$Debug)
 
 function Run($subPath) {
-	Write-Host "Running $subPath"
-
 	$assemblyFile = "$subPath\bin\$subPath.dll"
+    
+    Write-Host "Running $subPath on $assemblyFile"
+
 	if ((Test-Path -Path $assemblyFile) -eq $false) {
 		Write-Error -Message "Unable to find '$assemblyFile'. Please build the project first"
 		Exit -1
@@ -11,10 +12,16 @@ function Run($subPath) {
 
 	$packageDir = "packages\NUnit.ConsoleRunner.3.2.1\tools"
 	$cmd = "$packageDir\nunit3-console.exe"
-	$args = @($assemblyFile, "--noheader", "--verbose", "--process=InProcess", "--domain=None")
+	$args = @($assemblyFile, "--noheader", "--verbose", "--full", "--process=InProcess", "--domain=None", "--noresult", "--labels=All")
 
 	if ($Debug -eq $true) {
-		$args += @("--debug", "--pause")
+        # In order to support debugging we must start NUnit in the debugger.
+        # This is because the --debug option for NUnit does not work on its own:
+        # We are past test discovery when NUnit requests the debugger
+        $innerCmd = $cmd
+        $innerArgs = $args + @("--debug")
+        $cmd = "vsjitdebugger.exe"
+        $args = @($innerCmd ) + $args
 	}
 
 	& $cmd $args
@@ -34,5 +41,5 @@ try {
 }
 
 Write-Host "Running tests..."
-Run "BankAccountApp.NUnitTests.Unit"
+#Run "BankAccountApp.NUnitTests.Unit"
 Run "BankAccountApp.NUnitTests.Integration"
