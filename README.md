@@ -17,7 +17,7 @@ There are some plain unit tests defined in the `BankAccountApp.{TEST FRAMEWORK}.
 There are some tests defined in the `BankAccountApp.{TEST FRAMEWORK}.Integration` that are order dependend.  
 
 ### NUnit
-Current limitation is that only ordering is supported within a `TestFixture` or ordering fixtures in the same namespace. Also, when a test fails, the other tests are happily executed and not ignored.
+Current limitation is: when a test fails, the other tests are happily executed and not ignored. The implementation relies on a [forked build](https://github.com/Sebazzz/nunit/tree/custom-testassemblybuilder) of NUnit.
 
 **Resharper runner:** While the test tree of Resharper does not appear to follow the correct ordering, the tests are actually performed in the correct order.
 

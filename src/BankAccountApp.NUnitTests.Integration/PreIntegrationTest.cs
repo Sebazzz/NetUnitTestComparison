@@ -3,7 +3,6 @@
     using NUnit.Framework;
 
     [TestFixture]
-    [TestFixtureWithoutDependency]
     public sealed class PreIntegrationTest {
         private static bool _HasRun;
 

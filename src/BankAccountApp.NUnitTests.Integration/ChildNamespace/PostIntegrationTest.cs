@@ -3,7 +3,6 @@
     using NUnit.Framework;
 
     [TestFixture]
-    [TestFixtureDependency(typeof(IntegrationTest))]
     public sealed class PostIntegrationTest {
         private static bool _HasRun;
 

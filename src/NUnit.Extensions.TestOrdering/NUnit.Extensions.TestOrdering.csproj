@@ -31,8 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=3.2.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NUnit.3.2.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,10 +46,12 @@
   <ItemGroup>
     <Compile Include="DependencyChainValidator.cs" />
     <Compile Include="DependencySorter.cs" />
+    <Compile Include="FixtureOrderingCache.cs" />
+    <Compile Include="ITestCollection.cs" />
+    <Compile Include="OrderedTestAssemblyBuilder.cs" />
+    <Compile Include="OrderedTreeBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestFixtureDependencyAttribute.cs" />
     <Compile Include="TestMethodDependencyAttribute.cs" />
-    <Compile Include="TestFixtureDependencyChainer.cs" />
     <Compile Include="TestMethodDependencyChainer.cs" />
   </ItemGroup>
   <ItemGroup>

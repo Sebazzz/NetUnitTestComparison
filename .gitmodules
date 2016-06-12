@@ -1,0 +1,4 @@
+[submodule "extern/nunit"]
+	path = extern/nunit
+	url = https://github.com/Sebazzz/nunit.git
+	branch = custom-testassemblybuilder
