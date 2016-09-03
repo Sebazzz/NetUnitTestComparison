@@ -1,6 +1,8 @@
 # The .NET Test Framework comparison
 
-Comparison between MSTest 10.0 (VS2015), NUnit 3.2.1 and XUnit.NET 2.1. This repository is accompanied by [a blog post](http://damsteen.nl/blog/2016/06/05/ordered-tests-with-nunit-mstest-xunit-pt1).
+Comparison between MSTest 10.0 (VS2015), NUnit 3.2.1 and XUnit.NET 2.1. This repository is accompanied by [a series of blog posts](http://damsteen.nl/blog/2016/06/05/ordered-tests-with-nunit-mstest-xunit-pt1).
+
+Regarding ordering: Please also check the branches of this project. Progress has been made implementing test ordering in NUnit.
 
 Run tests using:
 
