@@ -16,17 +16,24 @@
         private readonly Dictionary<Type, TestCollectionWrapper> _testSuitesByType;
         private readonly Dictionary<TestCollectionInfo, TestCollectionWrapper> _testSuitesByTestCollection;
 
-        public TestSuite Root { get; }
+        public TestAssembly Root { get; }
 
-        public OrderedTreeBuilder(Assembly assembly) {
-            this._orderedTests = new OrderedTestSuite("Ordered tests");
-            this._unorderedTests = new TestSuite("Other tests");
 
-            this.Root = new TestSuite(assembly.FullName);
+        public void Complete() {
             this.Root.Add(this._unorderedTests);
             this.Root.Add(this._orderedTests);
 
-            this._fixtureOrderingCache = new FixtureOrderingCache(assembly);
+            this._unorderedTests.Properties.Set(PropertyNames.Order, 0);
+            this._orderedTests.Properties.Set(PropertyNames.Order, 1);
+        }
+
+        public OrderedTreeBuilder(TestAssembly testAssembly) {
+            this._unorderedTests = new TestSuite("Unordered");
+            this._orderedTests = new OrderedTestSuite("Ordered");
+
+            this.Root = testAssembly;
+            
+            this._fixtureOrderingCache = new FixtureOrderingCache(testAssembly.Assembly);
             this._testSuitesByType = new Dictionary<Type, TestCollectionWrapper>();
             this._testSuitesByTestCollection = new Dictionary<TestCollectionInfo, TestCollectionWrapper>();
 
@@ -50,8 +57,12 @@
             this.InitializeHierarchy();
 
             // The given test suite is not all that interesting, but the children are
-            foreach (Test childTest in suite.Tests.Cast<Test>()) {
-                this._unorderedTests.Add(childTest);
+            for (int i = suite.Tests.Count - 1; i >= 0; i--) {
+                ITest childTest = suite.Tests[i];
+
+                this._unorderedTests.Add((Test) childTest);
+
+                suite.Tests.RemoveAt(i);
             }
         }
 
@@ -66,8 +77,9 @@
                         throw new InvalidOperationException($"Unable to find parent of {childCollection.TypeName} (expected: {childCollection.Parent.TypeName}");
                     }
 
-                    if (!parentWrapper.TestSuite.Tests.Contains(testCollectionWrapper.TestSuite))
+                    if (!parentWrapper.TestSuite.Tests.Contains(testCollectionWrapper.TestSuite)) {
                         parentWrapper.TestSuite.Add(testCollectionWrapper.TestSuite);
+                    }
                 }
                 else if (!this._orderedTests.Tests.Contains(testCollectionWrapper.TestSuite)) {
                     this._orderedTests.Tests.Add(testCollectionWrapper.TestSuite);
@@ -85,12 +97,14 @@
                     Type childType = wrapper.TestCollection.ChildTypes[i];
 
                     Test childTypeTestSuite = this._testSuitesByType[childType].TestSuite;
-                    int childTypeIndex = testSuite.Tests.IndexOf(childTypeTestSuite);
+                    int childTypeTestSuiteIndex = testSuite.Tests.IndexOf(childTypeTestSuite);
 
                     // Swap
                     Test testAtTargetIndex = (Test) testSuite.Tests[i];
                     testSuite.Tests[i] = childTypeTestSuite;
-                    testSuite.Tests[childTypeIndex] = testAtTargetIndex;
+                    testSuite.Tests[childTypeTestSuiteIndex] = testAtTargetIndex;
+
+                    childTypeTestSuite.Properties.Set(PropertyNames.Order, i);
                 }
             }
         }
@@ -105,7 +119,9 @@
                 return;
             }
 
-            foreach (Test childTest in test.Tests.Cast<Test>().ToList()) {
+            for (int i = test.Tests.Count - 1; i >= 0; i--) {
+                Test childTest = (Test) test.Tests[i];
+
                 this.AddFromHierarchy(test, childTest);
             }
         }
@@ -141,7 +157,6 @@
     }
 
     public class OrderedTestSuite : TestSuite {
-
         public OrderedTestSuite(Test original) : base(original.TypeInfo) {
             this.MaintainTestOrder = true;
         }
@@ -154,6 +169,7 @@
 
         public TestCollectionTestSuite(Test original, TestCollectionInfo testCollection) : base(original) {
             this.TestCollection = testCollection;
+            this.MaintainTestOrder = true;
 
             foreach (ITest test in original.Tests) {
                 this.Add((Test) test);

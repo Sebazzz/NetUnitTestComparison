@@ -27,8 +27,6 @@
             foreach (TestCollectionInfo testCollection in returnValue) {
                 try {
                     testCollection.Parent = returnValue.SingleOrDefault(x => x.IsParentOf(testCollection));
-
-                    testCollection.Parent?.Children.Add(testCollection);
                 }
                 catch (InvalidOperationException ex) {
                     throw new InvalidOperationException($"Unable to validate hierarchy: test collection {testCollection.TypeName} has multiple parents", ex);
@@ -48,7 +46,6 @@
 
         public bool ContinueOnFailure { get; }
         public TestCollectionInfo Parent { get; set; }
-        public ICollection<TestCollectionInfo> Children { get; } = new List<TestCollectionInfo>();
 
         public TestCollectionInfo(ITestCollection testCollection) {
             this.ChildTypes = testCollection.GetTestFixtures().ToArray();
